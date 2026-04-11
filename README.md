@@ -10,7 +10,7 @@ Projekt je rozdělen do tří hlavních částí:
 
 ---
 
-## 📁 Struktura projektu
+## Struktura projektu
 
 store_simulator/
 │   Program.cs
@@ -34,26 +34,26 @@ store_simulator/
 
 ---
 
-## 🛒 Funkce aplikace
+## Funkce aplikace
 
-### ✔ Simulace dne
+###  Simulace dne
 - Náhodně se vygenerují zákazníci různých typů
 - Každý zákazník nakoupí podle svého chování
 - Výsledek dne se přičte k financím obchodu
 
-### ✔ Správa inventáře
+###  Správa inventáře
 - Zobrazení aktuálního inventáře
 - Objednání nového zboží
 - Kontrola dostupného zůstatku
 
-### ✔ Typy zákazníků
+###  Typy zákazníků
 - **CheapCustomer** – kupuje nejlevnější produkt  
 - **ImpulsiveCustomer** – kupuje náhodný produkt  
 - **DemandingCustomer** – kupuje nejdražší produkt  
 
 ---
 
-## ▶️ Spuštění projektu
+##  Spuštění projektu
 
 1. Otevři terminál ve složce projektu
 2. Spusť:
