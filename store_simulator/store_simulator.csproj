@@ -8,9 +8,4 @@
         <RootNamespace>ConsoleApp1</RootNamespace>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Folder Include="models\" />
-      <Folder Include="services\" />
-    </ItemGroup>
-
 </Project>
