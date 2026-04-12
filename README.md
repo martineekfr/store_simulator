@@ -18,7 +18,6 @@ Práce probíhala v několika fázích:
 
 ### **2) Implementace modelů**
 - Vytvoření tříd `Product`, `InventoryItem`, `Store`
-- Implementace zákazníků a jejich chování (`CheapCustomer`, `ImpulsiveCustomer`, `DemandingCustomer`)
 
 ### **3) Implementace služeb**
 - `CustomerService` – generování zákazníků
@@ -79,19 +78,11 @@ V kořenové složce projektu spusť:
 
 ##  Co ještě zbývá dokončit
 
-###  Možná rozšíření (volitelné)
+###  Možná rozšíření
 - Náklady na provoz (energie, nájem…)
-- Zaměstnanci a jejich mzdy
 - Reklama a marketing (zvyšování počtu zákazníků)
 - Statistiky a grafy (vývoj zisku)
-- Ukládání dat do souboru (JSON / CSV)
-- Testy (unit testy)
-
-###  Dokumentace
-- UML diagram tříd
-- Popis modulů
-- Ukázky výstupů programu
-
+- Typy zákazníků
 ---
 
 ##  Závěr
