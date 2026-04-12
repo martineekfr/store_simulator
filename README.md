@@ -49,11 +49,6 @@ Práce probíhala v několika fázích:
 - Objednání nového zboží
 - Kontrola dostupného zůstatku
 
-### Typy zákazníků
-- **CheapCustomer** – kupuje nejlevnější produkt  
-- **ImpulsiveCustomer** – kupuje náhodný produkt  
-- **DemandingCustomer** – kupuje nejdražší produkt  
-
 ---
 
 ##  Spuštění projektu
@@ -82,7 +77,12 @@ V kořenové složce projektu spusť:
 - Náklady na provoz (energie, nájem…)
 - Reklama a marketing (zvyšování počtu zákazníků)
 - Statistiky a grafy (vývoj zisku)
-- Typy zákazníků
+
+### Typy zákazníků
+- **CheapCustomer** – kupuje nejlevnější produkt  
+- **ImpulsiveCustomer** – kupuje náhodný produkt  
+- **DemandingCustomer** – kupuje nejdražší produkt  
+
 ---
 
 ##  Závěr
