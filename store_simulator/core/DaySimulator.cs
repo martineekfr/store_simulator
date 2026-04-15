@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using store_simulator.models;
 using store_simulator.services;
 
@@ -20,13 +20,21 @@ public class DaySimulator
     public void RunDay()
     {
         var customers = _customerService.GenerateCustomers();
-        var total = 0;
+        var revenue = 0;
+        var successfulSales = 0;
 
-        foreach (var c in customers)
-            total += c.Buy(_store);
+        foreach (var customer in customers)
+        {
+            var purchaseValue = customer.Buy(_store);
+            revenue += purchaseValue;
 
-        _financeService.ProcessDay(total);
+            if (purchaseValue > 0)
+                successfulSales++;
+        }
 
-        Console.WriteLine($"Zisk dne: {total}");
+        _financeService.ProcessDay(revenue);
+
+        Console.WriteLine(
+            $"Dnes prislo {customers.Count} zakazniku, probehlo {successfulSales} nakupu, trzba dne: {revenue}");
     }
 }

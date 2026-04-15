@@ -1,0 +1,15 @@
+C:\Users\olik\Desktop\Coding\store_simulator\store_simulator\bin\Debug\net10.0\store_simulator.exe
+C:\Users\olik\Desktop\Coding\store_simulator\store_simulator\bin\Debug\net10.0\store_simulator.deps.json
+C:\Users\olik\Desktop\Coding\store_simulator\store_simulator\bin\Debug\net10.0\store_simulator.runtimeconfig.json
+C:\Users\olik\Desktop\Coding\store_simulator\store_simulator\bin\Debug\net10.0\store_simulator.dll
+C:\Users\olik\Desktop\Coding\store_simulator\store_simulator\bin\Debug\net10.0\store_simulator.pdb
+C:\Users\olik\Desktop\Coding\store_simulator\store_simulator\obj\Debug\net10.0\store_simulator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\olik\Desktop\Coding\store_simulator\store_simulator\obj\Debug\net10.0\store_simulator.AssemblyInfoInputs.cache
+C:\Users\olik\Desktop\Coding\store_simulator\store_simulator\obj\Debug\net10.0\store_simulator.AssemblyInfo.cs
+C:\Users\olik\Desktop\Coding\store_simulator\store_simulator\obj\Debug\net10.0\store_simulator.csproj.CoreCompileInputs.cache
+C:\Users\olik\Desktop\Coding\store_simulator\store_simulator\obj\Debug\net10.0\store_simulator.sourcelink.json
+C:\Users\olik\Desktop\Coding\store_simulator\store_simulator\obj\Debug\net10.0\store_simulator.dll
+C:\Users\olik\Desktop\Coding\store_simulator\store_simulator\obj\Debug\net10.0\refint\store_simulator.dll
+C:\Users\olik\Desktop\Coding\store_simulator\store_simulator\obj\Debug\net10.0\store_simulator.pdb
+C:\Users\olik\Desktop\Coding\store_simulator\store_simulator\obj\Debug\net10.0\store_simulator.genruntimeconfig.cache
+C:\Users\olik\Desktop\Coding\store_simulator\store_simulator\obj\Debug\net10.0\ref\store_simulator.dll

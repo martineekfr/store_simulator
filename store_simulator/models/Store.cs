@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,34 +18,63 @@ public class Store
 
     public int SellCheapestProduct()
     {
-        var item = Inventory.Where(i => i.Quantity > 0)
-            .OrderBy(i => i.Product.Price)
-            .FirstOrDefault();
+        InventoryItem? cheapest = null;
 
-        return SellItem(item);
+        foreach (var item in Inventory)
+        {
+            if (item.Quantity <= 0)
+                continue;
+
+            if (cheapest == null || item.Product.Price < cheapest.Product.Price)
+                cheapest = item;
+        }
+
+        return SellItem(cheapest);
     }
 
     public int SellMostExpensiveProduct()
     {
-        var item = Inventory.Where(i => i.Quantity > 0)
-            .OrderByDescending(i => i.Product.Price)
-            .FirstOrDefault();
+        InventoryItem? mostExpensive = null;
 
-        return SellItem(item);
+        foreach (var item in Inventory)
+        {
+            if (item.Quantity <= 0)
+                continue;
+
+            if (mostExpensive == null || item.Product.Price > mostExpensive.Product.Price)
+                mostExpensive = item;
+        }
+
+        return SellItem(mostExpensive);
     }
 
     public int SellRandomProduct()
     {
-        var available = Inventory.Where(i => i.Quantity > 0).ToList();
-        if (available.Count == 0) return 0;
+        InventoryItem? selected = null;
+        var seenItems = 0;
 
-        var item = available[_random.Next(available.Count)];
-        return SellItem(item);
+        foreach (var item in Inventory)
+        {
+            if (item.Quantity <= 0)
+                continue;
+
+            seenItems++;
+
+            // Reservoir sampling avoids allocating a temporary filtered list.
+            if (_random.Next(seenItems) == 0)
+                selected = item;
+        }
+
+        return SellItem(selected);
     }
 
     public void AddStock(Product product, int quantity)
     {
-        var existing = Inventory.FirstOrDefault(i => i.Product.Name == product.Name);
+        if (quantity <= 0)
+            return;
+
+        var existing = Inventory.FirstOrDefault(
+            i => string.Equals(i.Product.Name, product.Name, StringComparison.OrdinalIgnoreCase));
 
         if (existing == null)
             Inventory.Add(new InventoryItem(product, quantity));
@@ -55,15 +84,30 @@ public class Store
 
     public void AddRevenue(int amount)
     {
+        if (amount <= 0)
+            return;
+
         Balance += amount;
     }
 
-    private int SellItem(InventoryItem? item)
+    public bool TrySpend(int amount)
     {
-        if (item == null) return 0;
+        if (amount <= 0)
+            return true;
+
+        if (Balance < amount)
+            return false;
+
+        Balance -= amount;
+        return true;
+    }
+
+    private static int SellItem(InventoryItem? item)
+    {
+        if (item == null)
+            return 0;
 
         item.Quantity--;
-        Balance += item.Product.Price;
         return item.Product.Price;
     }
 }

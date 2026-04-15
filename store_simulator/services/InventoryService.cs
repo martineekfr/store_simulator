@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using store_simulator.models;
 
@@ -15,38 +15,70 @@ public class InventoryService
 
     public void ShowInventory()
     {
-        Console.WriteLine("=== Inventář ===");
+        Console.WriteLine("=== Inventar ===");
 
-        foreach (var item in _store.Inventory)
-            Console.WriteLine($"{item.Product.Name} | {item.Product.Price} | {item.Quantity}");
+        if (_store.Inventory.Count == 0 || _store.Inventory.All(i => i.Quantity <= 0))
+        {
+            Console.WriteLine("Inventar je prazdny.");
+            return;
+        }
+
+        foreach (var item in _store.Inventory.OrderBy(i => i.Product.Name))
+            Console.WriteLine($"{item.Product.Name} | Cena: {item.Product.Price} | Kusy: {item.Quantity}");
     }
 
     public void OrderProducts()
     {
-        Console.Write("Název: ");
-        var name = Console.ReadLine();
+        var name = ReadRequiredText("Nazev: ");
+        var price = ReadPositiveInt("Cena: ");
+        var quantity = ReadPositiveInt("Mnozstvi: ");
 
-        Console.Write("Cena: ");
-        var price = int.Parse(Console.ReadLine()!);
-
-        Console.Write("Množství: ");
-        var qty = int.Parse(Console.ReadLine()!);
-
-        var cost = price * qty;
-
-        if (_store.Balance < cost)
+        int cost;
+        try
         {
-            Console.WriteLine("Nedostatek peněz.");
+            cost = checked(price * quantity);
+        }
+        catch (OverflowException)
+        {
+            Console.WriteLine("Objednavka je prilis velka.");
             return;
         }
 
-        var existing = _store.Inventory.FirstOrDefault(i => i.Product.Name == name);
+        if (!_store.TrySpend(cost))
+        {
+            Console.WriteLine("Nedostatek penez.");
+            return;
+        }
 
-        if (existing == null)
-            _store.AddStock(new Product(name!, price), qty);
-        else
-            existing.Quantity += qty;
+        _store.AddStock(new Product(name, price), quantity);
+        Console.WriteLine($"Objednano za {cost}. Aktualni zustatek: {_store.Balance}");
+    }
 
-        Console.WriteLine("Objednáno.");
+    private static string ReadRequiredText(string prompt)
+    {
+        while (true)
+        {
+            Console.Write(prompt);
+            var value = Console.ReadLine();
+
+            if (!string.IsNullOrWhiteSpace(value))
+                return value.Trim();
+
+            Console.WriteLine("Hodnota nesmi byt prazdna.");
+        }
+    }
+
+    private static int ReadPositiveInt(string prompt)
+    {
+        while (true)
+        {
+            Console.Write(prompt);
+            var value = Console.ReadLine();
+
+            if (int.TryParse(value, out var number) && number > 0)
+                return number;
+
+            Console.WriteLine("Zadej kladne cele cislo.");
+        }
     }
 }

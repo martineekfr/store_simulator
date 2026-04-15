@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using store_simulator.models;
 using store_simulator.services;
 
@@ -7,37 +7,46 @@ namespace store_simulator.core;
 public class Game
 {
     private readonly Store _store;
-    private readonly CustomerService _customerService;
-    private readonly FinanceService _financeService;
     private readonly InventoryService _inventoryService;
+    private readonly DaySimulator _daySimulator;
 
     public Game(Store store, CustomerService cs, FinanceService fs, InventoryService inv)
     {
         _store = store;
-        _customerService = cs;
-        _financeService = fs;
         _inventoryService = inv;
+        _daySimulator = new DaySimulator(store, cs, fs);
     }
 
     public void Run()
     {
         while (true)
         {
-            Console.WriteLine("\n1) Simulovat den");
-            Console.WriteLine("2) Inventář");
+            Console.WriteLine($"\nStav uctu: {_store.Balance}");
+            Console.WriteLine("1) Simulovat den");
+            Console.WriteLine("2) Inventar");
             Console.WriteLine("3) Objednat");
             Console.WriteLine("4) Konec");
+            Console.Write("Volba: ");
 
             var input = Console.ReadLine();
 
-            if (input == "1")
-                new DaySimulator(_store, _customerService, _financeService).RunDay();
-            else if (input == "2")
-                _inventoryService.ShowInventory();
-            else if (input == "3")
-                _inventoryService.OrderProducts();
-            else if (input == "4")
-                return;
+            switch (input)
+            {
+                case "1":
+                    _daySimulator.RunDay();
+                    break;
+                case "2":
+                    _inventoryService.ShowInventory();
+                    break;
+                case "3":
+                    _inventoryService.OrderProducts();
+                    break;
+                case "4":
+                    return;
+                default:
+                    Console.WriteLine("Neplatna volba. Zadej 1 az 4.");
+                    break;
+            }
         }
     }
 }
