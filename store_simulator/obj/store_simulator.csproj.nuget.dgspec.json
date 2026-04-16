@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marti\\RiderProjects\\ConsoleApp1\\store_simulator\\store_simulator.csproj": {}
+    "C:\\Users\\marti\\RiderProjects\\store_simulator\\store_simulator\\store_simulator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marti\\RiderProjects\\ConsoleApp1\\store_simulator\\store_simulator.csproj": {
+    "C:\\Users\\marti\\RiderProjects\\store_simulator\\store_simulator\\store_simulator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marti\\RiderProjects\\ConsoleApp1\\store_simulator\\store_simulator.csproj",
+        "projectUniqueName": "C:\\Users\\marti\\RiderProjects\\store_simulator\\store_simulator\\store_simulator.csproj",
         "projectName": "store_simulator",
-        "projectPath": "C:\\Users\\marti\\RiderProjects\\ConsoleApp1\\store_simulator\\store_simulator.csproj",
+        "projectPath": "C:\\Users\\marti\\RiderProjects\\store_simulator\\store_simulator\\store_simulator.csproj",
         "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marti\\RiderProjects\\ConsoleApp1\\store_simulator\\obj\\",
+        "outputPath": "C:\\Users\\marti\\RiderProjects\\store_simulator\\store_simulator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",

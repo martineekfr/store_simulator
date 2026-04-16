@@ -19,6 +19,7 @@ public class InventoryService
 
         foreach (var item in _store.Inventory)
             Console.WriteLine($"{item.Product.Name} | {item.Product.Price} | {item.Quantity}");
+            Console.WriteLine($"Peněženka: {_store.Balance} Kč\n");
     }
 
     public void OrderProducts()
