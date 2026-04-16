@@ -87,7 +87,7 @@ V kořenové složce projektu spusť:
 
 ##  Závěr
 
-Projekt je funkční, přehledný a připravený k dalšímu rozšiřování.  
+Projekt je ve fázi vývoje, přehledný a připravený k dalšímu rozšiřování.  
 V této fázi je vhodný pro kontrolní bod a připravený na zpětnou vazbu.
 
 
