@@ -8,7 +8,7 @@ public class Store
 {
     private readonly Random _random = new();
 
-    public int Balance { get; private set; }
+    public int Balance { get; set; }
     public List<InventoryItem> Inventory { get; } = new();
 
     public Store(int startingBalance)

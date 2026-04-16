@@ -35,7 +35,7 @@ public class Game
             else if (input == "2")
                 _inventoryService.ShowInventory();
             else if (input == "3")
-                _inventoryService.OrderProducts();
+                _inventoryService.OrderProduct();
             else if (input == "4")
                 return;
         }

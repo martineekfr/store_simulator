@@ -22,32 +22,35 @@ public class InventoryService
             Console.WriteLine($"Peněženka: {_store.Balance} Kč\n");
     }
 
-    public void OrderProducts()
+    public void OrderProduct()
     {
-        Console.Write("Název: ");
+        Console.Write("Název produktu: ");
         var name = Console.ReadLine();
 
         Console.Write("Cena: ");
-        var price = int.Parse(Console.ReadLine()!);
+        var price = int.Parse(Console.ReadLine());
 
         Console.Write("Množství: ");
-        var qty = int.Parse(Console.ReadLine()!);
+        var quantity = int.Parse(Console.ReadLine());
 
-        var cost = price * qty;
+        int totalCost = price * quantity;
 
-        if (_store.Balance < cost)
+        if (_store.Balance < totalCost)
         {
-            Console.WriteLine("Nedostatek peněz.");
+            Console.WriteLine($"Nemáš dost peněz! Objednávka stojí {totalCost} Kč, ale máš jen {_store.Balance} Kč.");
             return;
         }
 
+        _store.Balance -= totalCost;   
         var existing = _store.Inventory.FirstOrDefault(i => i.Product.Name == name);
 
         if (existing == null)
-            _store.AddStock(new Product(name!, price), qty);
+            _store.AddStock(new Product(name!, price), quantity);
         else
-            existing.Quantity += qty;
+            existing.Quantity += quantity;
 
         Console.WriteLine("Objednáno.");
+
     }
+
 }
