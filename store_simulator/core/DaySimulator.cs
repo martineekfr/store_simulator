@@ -38,32 +38,15 @@ public class DaySimulator
         }
 
 
-        var soldToday = new Dictionary<string, int>();
-
-        foreach (var c in customers)
-        {
-            var sold = c.Buy(_store);
-
-            if (sold != null)
-            {
-                total += sold.Price;
-
-                if (!soldToday.ContainsKey(sold.Name))
-                    soldToday[sold.Name] = 0;
-
-                soldToday[sold.Name]++;
-            }
-        }
-
         Console.WriteLine("\n=== Výsledky dne ===");
 
-        if (soldToday.Count == 0)
+        if (_soldToday.Count == 0)
         {
             Console.WriteLine("Dnes se nic neprodalo.");
         }
         else
         {
-            foreach (var kv in soldToday)
+            foreach (var kv in _soldToday)
                 Console.WriteLine($"- {kv.Key} x{kv.Value}");
         }
 
