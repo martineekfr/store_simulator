@@ -18,7 +18,7 @@ public class InventoryService
         Console.WriteLine("=== Inventář ===");
 
         foreach (var item in _store.Inventory)
-            Console.WriteLine($"{item.Product.Name} | {item.Product.Price} | {item.Quantity}");
+            Console.WriteLine($"{item.Product.Name} | {item.Product.Price} Kč | {item.Quantity} celkem" );
             Console.WriteLine($"Peněženka: {_store.Balance} Kč\n");
     }
 
@@ -49,7 +49,7 @@ public class InventoryService
         else
             existing.Quantity += quantity;
 
-        Console.WriteLine("Objednáno.");
+        Console.WriteLine($"Objednáno. Bylo odečteno -{totalCost} Kč, nyní máš na účtu {_store.Balance} Kč." );
 
     }
 

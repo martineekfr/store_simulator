@@ -14,6 +14,7 @@ internal class Program
         var inv = new InventoryService(store);
 
         var game = new Game(store, cs, fs, inv);
+        Console.WriteLine("__STORE_SIMULATOR__");
         game.Run();
     }
 }
