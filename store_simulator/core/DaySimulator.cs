@@ -46,6 +46,7 @@ public class DaySimulator
         }
         else
         {
+            Console.WriteLine("Prodalo se:\n");
             foreach (var kv in _soldToday)
                 Console.WriteLine($"- {kv.Key} x{kv.Value}");
         }

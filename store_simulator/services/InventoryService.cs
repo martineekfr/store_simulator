@@ -24,7 +24,11 @@ public class InventoryService
 
     public void OrderProduct()
     {
-        Console.Write("Název produktu: ");
+        Console.WriteLine("Výběr produktů:\n" +
+                          "Mrkev 20 Kč\n" +
+                          "Brambory 50kč\n" +
+                          "Bonbony 59kč");
+        Console.Write("\nNázev produktu: ");
         var name = Console.ReadLine();
 
         Console.Write("Cena: ");
@@ -49,7 +53,7 @@ public class InventoryService
         else
             existing.Quantity += quantity;
 
-        Console.WriteLine($"Objednáno. Bylo odečteno -{totalCost} Kč, nyní máš na účtu {_store.Balance} Kč." );
+        Console.WriteLine($"Objednáno. Bylo odečteno -{totalCost} Kč z tvého účtu, nyní máš na účtu {_store.Balance} Kč." );
 
     }
 
