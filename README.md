@@ -6,11 +6,6 @@ Projekt je navržen tak, aby byl přehledný, rozšiřitelný a dobře strukturo
 
 ---
 
-## Průběžná práce na projektu
-
-Na projektu pracuji postupně a průběžně, což je vidět i v historii commitů na GitHubu.  
-Práce probíhala v několika fázích:
-
 ### **1) Návrh architektury**
 - Rozdělení projektu do složek `models`, `services`, `core`
 - Návrh tříd a jejich odpovědností
@@ -61,7 +56,7 @@ V kořenové složce projektu spusť:
 ##  Co je hotové
 
 - Kompletní architektura projektu  
-- Všechny modely a služby  
+- Některé modely a služby  
 - Herní logika a simulace dne  
 - Správa inventáře  
 - Objednávky zboží  
