@@ -9,6 +9,8 @@ public class DaySimulator
     private readonly Store _store;
     private readonly CustomerService _customerService;
     private readonly FinanceService _financeService;
+    private Dictionary<string, int> _soldToday = new();
+
 
     public DaySimulator(Store store, CustomerService cs, FinanceService fs)
     {
@@ -20,13 +22,51 @@ public class DaySimulator
     public void RunDay()
     {
         var customers = _customerService.GenerateCustomers();
-        var total = 0;
+        int total = 0;
+        foreach (var c in customers)
+        {
+            var soldProduct = c.Buy(_store);
+
+            if (soldProduct != null)
+            {
+                if (!_soldToday.ContainsKey(soldProduct.Name))
+                    _soldToday[soldProduct.Name] = 0;
+
+                _soldToday[soldProduct.Name]++;
+                total += soldProduct.Price;
+            }
+        }
+
+
+        var soldToday = new Dictionary<string, int>();
 
         foreach (var c in customers)
-            total += c.Buy(_store);
+        {
+            var sold = c.Buy(_store);
 
-        _financeService.ProcessDay(total);
+            if (sold != null)
+            {
+                total += sold.Price;
 
-        Console.WriteLine($"Zisk dne: {total}");
+                if (!soldToday.ContainsKey(sold.Name))
+                    soldToday[sold.Name] = 0;
+
+                soldToday[sold.Name]++;
+            }
+        }
+
+        Console.WriteLine("\n=== Výsledky dne ===");
+
+        if (soldToday.Count == 0)
+        {
+            Console.WriteLine("Dnes se nic neprodalo.");
+        }
+        else
+        {
+            foreach (var kv in soldToday)
+                Console.WriteLine($"- {kv.Key} x{kv.Value}");
+        }
+
+        Console.WriteLine($"Celkem vyděláno: {total} Kč");
     }
 }

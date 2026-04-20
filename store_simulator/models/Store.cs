@@ -16,32 +16,43 @@ public class Store
         Balance = startingBalance;
     }
 
-    public int SellCheapestProduct()
-    {
-        var item = Inventory.Where(i => i.Quantity > 0)
-            .OrderBy(i => i.Product.Price)
-            .FirstOrDefault();
 
-        return SellItem(item);
-    }
-
-    public int SellMostExpensiveProduct()
+    public Product? SellMostExpensiveProduct()
     {
-        var item = Inventory.Where(i => i.Quantity > 0)
+        var item = Inventory
+            .Where(i => i.Quantity > 0)
             .OrderByDescending(i => i.Product.Price)
             .FirstOrDefault();
 
-        return SellItem(item);
+        if (item == null)
+            return null;
+
+        item.Quantity--;
+        Balance += item.Product.Price;
+
+        return item.Product;
     }
 
-    public int SellRandomProduct()
+    
+    private static readonly Random _rng = new();
+
+    public Product? SellRandomProduct()
     {
-        var available = Inventory.Where(i => i.Quantity > 0).ToList();
-        if (available.Count == 0) return 0;
+        var available = Inventory
+            .Where(i => i.Quantity > 0)
+            .ToList();
 
-        var item = available[_random.Next(available.Count)];
-        return SellItem(item);
+        if (available.Count == 0)
+            return null;
+
+        var item = available[_rng.Next(available.Count)];
+
+        item.Quantity--;
+        Balance += item.Product.Price;
+
+        return item.Product;
     }
+
 
     public void AddStock(Product product, int quantity)
     {
@@ -66,4 +77,21 @@ public class Store
         Balance += item.Product.Price;
         return item.Product.Price;
     }
+    public Product? SellCheapestProduct()
+    {
+        var item = Inventory
+            .Where(i => i.Quantity > 0)
+            .OrderBy(i => i.Product.Price)
+            .FirstOrDefault();
+
+        if (item == null)
+            return null;
+
+        item.Quantity--;
+        Balance += item.Product.Price;
+
+        return item.Product;
+    }
+
+
 }

@@ -2,20 +2,35 @@
 
 public abstract class Customer
 {
-    public abstract int Buy(Store store);
+    public abstract Product? Buy(Store store);
 }
 
 public class CheapCustomer : Customer
 {
-    public override int Buy(Store store) => store.SellCheapestProduct();
+    public override Product? Buy(Store store)
+    {
+        return store.SellCheapestProduct();
+    }
+
 }
 
 public class ImpulsiveCustomer : Customer
 {
-    public override int Buy(Store store) => store.SellRandomProduct();
+    public override Product? Buy(Store store)
+    {
+        return store.SellRandomProduct();
+    }
+
 }
 
 public class DemandingCustomer : Customer
 {
-    public override int Buy(Store store) => store.SellMostExpensiveProduct();
+    public override Product? Buy(Store store)
+    {
+        return store.SellMostExpensiveProduct();
+    }
+
 }
+
+
+
