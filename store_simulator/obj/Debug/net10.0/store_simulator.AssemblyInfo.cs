@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("store_simulator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+db2c0e54feadd35b84b0d9feb48c2ceee0afc86f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe3e25906940edc0266cf06f327d5477e924c9ea")]
 [assembly: System.Reflection.AssemblyProductAttribute("store_simulator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("store_simulator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

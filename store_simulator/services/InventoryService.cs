@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using store_simulator.models;
 
 namespace store_simulator.services;
@@ -27,15 +28,43 @@ public class InventoryService
         Console.WriteLine("Výběr produktů:\n" +
                           "Mrkev 20 Kč\n" +
                           "Brambory 50kč\n" +
-                          "Bonbony 59kč");
+                          "Bonbony 59kč\n" +
+                          "Špagety 89kč");
         Console.Write("\nNázev produktu: ");
         var name = Console.ReadLine();
+        int price = 0;
+        int quantity = 0;
 
-        Console.Write("Cena: ");
-        var price = int.Parse(Console.ReadLine());
-
-        Console.Write("Množství: ");
-        var quantity = int.Parse(Console.ReadLine());
+        if (name == "Mrkev")
+        {
+            price = 20;
+            Console.WriteLine("Množství: ");
+            quantity = int.Parse(Console.ReadLine());
+        }
+        else if (name == "Brambory")
+        {
+            price = 50;
+            Console.WriteLine("Množství: ");
+            quantity = int.Parse(Console.ReadLine());
+        }
+        else if (name == "Bonbony")
+        {
+            price = 59;
+            Console.WriteLine("Množství: ");
+            quantity = int.Parse(Console.ReadLine());
+        }
+        else if (name == "Špagety")
+        {
+            price = 89;
+            Console.WriteLine("Množství: ");
+            quantity = int.Parse(Console.ReadLine());
+        }
+        else
+        {
+            Console.WriteLine("Produkt neexistuje!");
+            return;
+        }
+        
 
         int totalCost = price * quantity;
 
