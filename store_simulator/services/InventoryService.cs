@@ -26,36 +26,49 @@ public class InventoryService
     public void OrderProduct()
     {
         Console.WriteLine("Výběr produktů:\n" +
-                          "Mrkev 20 Kč\n" +
-                          "Brambory 50kč\n" +
-                          "Bonbony 59kč\n" +
-                          "Špagety 89kč");
+                          "1) Mrkev 20 Kč\n" +
+                          "2) Brambory 50kč\n" +
+                          "3) Bonbony 59kč\n" +
+                          "4) Špagety 89kč\n" + 
+                          "5) Toaletní papír 99kč\n" + 
+                          "6) Kuřecí maso 150kč");
         Console.Write("\nNázev produktu: ");
         var name = Console.ReadLine();
         int price = 0;
         int quantity = 0;
 
-        if (name == "Mrkev")
+        if (name == "1")
         {
             price = 20;
             Console.WriteLine("Množství: ");
             quantity = int.Parse(Console.ReadLine());
         }
-        else if (name == "Brambory")
+        else if (name == "2")
         {
             price = 50;
             Console.WriteLine("Množství: ");
             quantity = int.Parse(Console.ReadLine());
         }
-        else if (name == "Bonbony")
+        else if (name == "3")
         {
             price = 59;
             Console.WriteLine("Množství: ");
             quantity = int.Parse(Console.ReadLine());
         }
-        else if (name == "Špagety")
+        else if (name == "4")
         {
             price = 89;
+            Console.WriteLine("Množství: ");
+            quantity = int.Parse(Console.ReadLine());
+        }
+        else if (name == "5")
+        {
+            Console.WriteLine("Množství: ");
+            quantity = int.Parse(Console.ReadLine());
+        }
+
+        else if (name == "6")
+        {
             Console.WriteLine("Množství: ");
             quantity = int.Parse(Console.ReadLine());
         }
