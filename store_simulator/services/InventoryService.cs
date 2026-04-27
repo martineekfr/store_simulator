@@ -33,42 +33,51 @@ public class InventoryService
                           "5) Toaletní papír 99kč\n" + 
                           "6) Kuřecí maso 150kč");
         Console.Write("\nNázev produktu: ");
-        var name = Console.ReadLine();
+        var selectedproduct = Console.ReadLine();
+        string name;
         int price = 0;
         int quantity = 0;
 
-        if (name == "1")
+        if (selectedproduct == "1")
         {
+            name = "Mrkev";
             price = 20;
             Console.WriteLine("Množství: ");
             quantity = int.Parse(Console.ReadLine());
         }
-        else if (name == "2")
+        else if (selectedproduct== "2")
         {
+            name =  "Brambory";
             price = 50;
             Console.WriteLine("Množství: ");
             quantity = int.Parse(Console.ReadLine());
         }
-        else if (name == "3")
+        else if (selectedproduct == "3")
         {
+            name = "Bonbony";
             price = 59;
             Console.WriteLine("Množství: ");
             quantity = int.Parse(Console.ReadLine());
         }
-        else if (name == "4")
+        else if (selectedproduct == "4")
         {
+            name = "Špagety";
             price = 89;
             Console.WriteLine("Množství: ");
             quantity = int.Parse(Console.ReadLine());
         }
-        else if (name == "5")
+        else if (selectedproduct == "5")
         {
+            name = "Toaletní papír";
+            price = 99;
             Console.WriteLine("Množství: ");
             quantity = int.Parse(Console.ReadLine());
         }
 
-        else if (name == "6")
+        else if (selectedproduct == "6")
         {
+            name = "Kuřecí maso";
+            price = 150;
             Console.WriteLine("Množství: ");
             quantity = int.Parse(Console.ReadLine());
         }
