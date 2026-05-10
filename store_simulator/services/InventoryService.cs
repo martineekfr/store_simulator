@@ -32,7 +32,7 @@ public class InventoryService
                           "4) Špagety 89kč\n" + 
                           "5) Toaletní papír 99kč\n" + 
                           "6) Kuřecí maso 150kč");
-        Console.Write("\nNázev produktu: ");
+        Console.Write("\nČíslo produktu: ");
         var selectedproduct = Console.ReadLine();
         string name;
         int price = 0;
